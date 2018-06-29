@@ -24,17 +24,15 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Category::class, function (Faker\Generator $faker) {
-    static $password;
-
     return [
         'name' => ucfirst($faker->unique()->word)
     ];
 });
 
-$factory->define(App\Books::class, function (Faker\Generator $faker) {
-    return [
-        'title' => $faker->words(3),
-        'subtitle' => $faker->words(6),
-        'price' => $faker->randomFloat(2, 1, 200)
+$factory->define(App\Book::class, function (Faker\Generator $faker) {
+    return  [
+        'title' => $faker->words(3, true),
+        'subtitle' => $faker->words(5, true),
+        'price' => $faker->randomFloat(2,5,200)
     ];
 });
