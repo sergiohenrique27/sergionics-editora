@@ -5,12 +5,24 @@
         <div class="row">
             <h3>Nova Categoria</h3>
 
+            <!--
+            @if($errors->any())
+               <ul class="alert alert-danger list-inline">
+                   @foreach($errors->all() as $error)
+                       <li>{{$error}}</li>
+                   @endforeach
+               </ul>
+            @endif
+            -->
+
             {!! Form::open(['route' => 'categories.store', 'class' => 'form']) !!}
 
-            <div class="form-group">
-                {!! Form::label('name', 'Nome') !!}
+            {!! Html::openFormGroup('name', $errors) !!}
+                {!! Form::label('name', 'Nome', ['class' => 'control-label']) !!}
                 {!! Form::text('name', null, ['class' => 'form-control']) !!}
-            </div>
+                {!! Form::error('name', $errors) !!}
+                <!--   #$errors->first('name')  -->
+            {!! Html::closeFormGroup() !!}
 
             <div class="form-group">
                 {!! Form::submit('Criar categoria', ['class' => 'btn btn-primary']) !!}
