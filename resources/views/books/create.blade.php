@@ -7,22 +7,7 @@
 
             {!! Form::open(['route' => 'books.store', 'class' => 'form']) !!}
 
-            <div class="form-group">
-                {!! Form::label('title', 'Título') !!}
-                {!! Form::text('title', null, ['class' => 'form-control']) !!}
-            </div>
-
-
-            <div class="form-group">
-                {!! Form::label('subtitle', 'Sub-Título') !!}
-                {!! Form::text('subtitle', null, ['class' => 'form-control']) !!}
-            </div>
-
-            <div class="form-group">
-                {!! Form::label('price', 'Preço') !!}
-                {!! Form::text('price', null, ['class' => 'form-control']) !!}
-            </div>
-
+            @include('books._form')
 
             <div class="form-group">
                 {!! Form::submit('Criar Livro', ['class' => 'btn btn-primary']) !!}
